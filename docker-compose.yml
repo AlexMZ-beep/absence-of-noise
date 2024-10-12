@@ -1,0 +1,34 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+    env_file:
+      - .env.prod
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend/rzd_bot/:/code/rzd_bot
+      - ./backend/chroma_data:/code/chroma_data
+    restart: always
+    networks:
+      - backend-redis
+      - internet
+
+  redis:
+    image: redis/redis-stack:latest
+    ports:
+      - "6379:6379"
+      - "8001:8001"
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+    volumes:
+      - ./redis_data:/data
+    networks:
+      - backend-redis
+
+networks:
+  backend-redis:
+    internal: true
+  internet:
+    driver: bridge
