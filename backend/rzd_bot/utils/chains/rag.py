@@ -27,26 +27,34 @@ TOP_K = 15
 MAX_SYMBOLS = 4000
 
 ANSWER_SYSTEM_PROMPT = """\
-Your task is to provide a clear, concise, and professional answer to \
-the user's question only based on the provided information for the RZD platform. \
-Give two answers to each question: one with a list of relevant document identifiers and the second \
-with the answer to the question itself, using documents with these identifiers."""
+Your task is to answer the user's questions using only the information \
+from the provided documents and based on the user's profile data. \
+The answer must be framed within the context of the company "РЖД." \
+Provide two responses to each question: one with a list of relevant document identifiers, \
+and the second with the answer to the question itself, \
+using the documents with those identifiers and the user's profile description."""
 
 ANSWER_HUMAN_PROMPT = """\
-<attantion>
-IMPORTANT: Your goal is to provide answers only within the scope of the RZD platform \
-hosting platform and to provide accurate information to solve the user's problem. \
-Use all relevant facts from the knowledge base. \
-If there are no answers to the user's question in the found facts, say only "Я не знаю".
-<attantion>
-<input>
-    <question>
-        {question}
-    </question>
-    <user-profile>
-        {user_profile}
-    </user-profile>
-</input>"""
+### Please follow these instructions:
+
+(1) **Analyze** all provided documents and extract all the facts from them.
+(2) For each fact, **evaluate** whether it **matches the user's profile** and **answers** the user's question.
+(3) **If no relevant facts are found, respond only** with: "Я не знаю."
+(4) **Select** the facts that match the user's profile and answer their question.
+(5) **Logically connect** the selected facts to maintain coherence and consistency in the response.
+(6) **Compose a cohesive and structured text** for the user’s response using the selected facts.
+
+### IMPORTANT:
+
+Your goal is to provide answers **only within the context of the activities of РЖД** and to provide **accurate information** to resolve the user's issue. Use all relevant facts from the documents. If the found facts **do not answer the user's question** or **do not match their profile,** simply state: "Я не знаю."
+
+<**User's Profile Description**>
+
+{user_profile}
+
+<**User's Question**>
+
+{question}"""
 
 SUMMARY_SYSTEM = """\
 Reduce the length of your answer to the question by making it shorter, clearer, and more concise.
