@@ -26,7 +26,7 @@
       v-model="layout"
       show-if-above
       :width="400"
-      :breakpoint="500"
+      :breakpoint="600"
       bordered
       :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
     >
@@ -87,7 +87,7 @@
       v-model="layout"
       show-if-above
       :width="400"
-      :breakpoint="500"
+      :breakpoint="600"
       side="right"
     >
       <q-scroll-area class="fit">
@@ -140,11 +140,11 @@ const isAddNewUser = ref(false);
 const isAddNewDocument = ref(false);
 
 const layout = ref(true);
-// onMounted(() => {
-//   if (window.screenMovie < 600) {
-//     layout.value = false;
-//   }
-// });
+onMounted(() => {
+  if (window.innerWidth < 600) {
+    layout.value = false;
+  }
+});
 const drawerMobileMenu = ref(false);
 const choosedProfile = useState('choosedProfile', () => ({
   name: '',
