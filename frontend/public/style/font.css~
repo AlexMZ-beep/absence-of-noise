@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'FSRailway';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: local("FSRailway"),
+    url('/font/FSRailway Book.otf') format('opentype');
+}
+
+body {
+    font-family: FSRailway, serif;
+}

@@ -6,7 +6,7 @@ authors = ["alexMZ <alexMZ@gmail.com>"]
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10,<3.13"
 fastapi = {extras = ["all"], version = "^0.115.0"}
 langserve = {extras = ["all"], version = "^0.3.0"}
 pydantic = "^2.9.2"
@@ -26,6 +26,7 @@ pypdf = "^5.0.1"
 pdfminer = "^20191125"
 pdfminer-six = "^20240706"
 langchain-openai = "^0.2.2"
+pi-heif = "^0.18.0"
 
 
 [tool.poetry.group.dev.dependencies]

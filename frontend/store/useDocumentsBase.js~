@@ -1,0 +1,5 @@
+export useDocumentBase = useState('useDocumentBase', () => {
+    return {
+        name: ''
+    }
+})

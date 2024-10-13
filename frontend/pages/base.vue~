@@ -1,0 +1,8 @@
+<template>
+  <base-view/>
+</template>
+<script setup lang="ts">
+
+import Card from "~/components/base/card.vue";
+import View from "~/components/base/view.vue";
+</script>

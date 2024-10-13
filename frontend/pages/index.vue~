@@ -1,0 +1,15 @@
+<template>
+        <NuxtLayout name="chat">
+          <chat/>
+        </NuxtLayout>
+</template>
+
+<style scoped>
+.q-toolbar {
+  padding: 0 12px 0 0;
+}
+</style>
+<script setup lang="ts">
+const drawerHistory = useState('drawerHistory', () => false);
+
+</script>
