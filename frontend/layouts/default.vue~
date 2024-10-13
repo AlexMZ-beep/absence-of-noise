@@ -32,7 +32,7 @@
     >
       <q-scroll-area class="fit">
         <div class="tw-text-center tw-my-5 tw-text-2xl">
-          Панель администратора (для <демонстрации></демонстрации>)
+          Панель администратора <br>(для демонстрации)
         </div>
         <q-list>
           <template v-for="(document, index) in documents" :key="index">

@@ -140,11 +140,11 @@ const isAddNewUser = ref(false);
 const isAddNewDocument = ref(false);
 
 const layout = ref(true);
-onMounted(() => {
-  if (window.screenX < 600) {
-    layout.value = false;
-  }
-});
+// onMounted(() => {
+//   if (window.screenMovie < 600) {
+//     layout.value = false;
+//   }
+// });
 const drawerMobileMenu = ref(false);
 const choosedProfile = useState('choosedProfile', () => ({
   name: '',
