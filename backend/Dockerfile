@@ -12,4 +12,6 @@ RUN poetry install --no-interaction --no-ansi --no-root --no-directory
 
 COPY ./rzd_bot ./rzd_bot
 
+RUN pip install pdfminer.six
+
 CMD python3 -m rzd_bot
